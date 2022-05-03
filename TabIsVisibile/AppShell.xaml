@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    Shell.FlyoutBehavior="Disabled">
+
+    <Shell.Resources>
+        <FontImageSource
+            x:Key="IconMessage"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Microphone}"
+            Size="18"
+            Color="#1d1d1d"/>
+        <FontImageSource
+            x:Key="IconBack"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Backward}"
+            Size="18"
+            Color="#1d1d1d"/>
+        <FontImageSource
+            x:Key="IconSignout"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.SignOutAlt}"
+            Size="18"
+            Color="#1d1d1d"/>
+        <FontImageSource
+            x:Key="IconInfo"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Info}"
+            Size="18"
+            Color="#1d1d1d"/>
+        <FontImageSource
+            x:Key="IconHome"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Home}"
+            Size="18"
+            Color="#1d1d1d"/>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Message Page" Icon="{StaticResource IconMessage}">
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+        </Tab>
+        <Tab Title="Main Page" Icon="{StaticResource IconHome}" IsVisible="{Binding MainPageIsVisible}">
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Info Page" Icon="{StaticResource IconInfo}" IsVisible="{Binding InfoPageIsVisible}" >
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Back Page" Icon="{StaticResource IconBack}" IsVisible="{Binding BackPageIsVisible}">
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Sign Out Page" Icon="{StaticResource IconSignout}" IsVisible="{Binding BackPageIsVisible}">
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </TabBar>
+
+    <!--<FlyoutItem Title="Message Page" Icon="{StaticResource IconMessage}" IsVisible="True">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Main Page" Icon="{StaticResource IconHome}" IsVisible="{Binding MainPageIsVisible}">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Info Page" Icon="{StaticResource IconInfo}" IsVisible="{Binding InfoPageIsVisible}">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Back Page" Icon="{StaticResource IconBack}" IsVisible="{Binding BackPageIsVisible}">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Sign Out Page" Icon="{StaticResource IconSignout}" IsVisible="{Binding BackPageIsVisible}">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>-->
+
+</Shell>

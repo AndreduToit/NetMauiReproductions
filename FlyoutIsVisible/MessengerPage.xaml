@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MessengerPage"
+             Title="MessengerPage">
+    <StackLayout HorizontalOptions="CenterAndExpand">
+        <Button Text="Toggle Main Page Visible" Command="{Binding CommandSendClicked}" CommandParameter="1"/>
+        <Button Text="Toggle Info Page Visible" Command="{Binding CommandSendClicked}" CommandParameter="2"/>
+        <Button Text="Toggle Back Page Visible" Command="{Binding CommandSendClicked}" CommandParameter="3"/>
+        <Button Text="Toggle Sign Out Page Visible" Command="{Binding CommandSendClicked}" CommandParameter="4"/>
+    </StackLayout>
+</ContentPage>
