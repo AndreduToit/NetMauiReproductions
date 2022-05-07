@@ -44,7 +44,6 @@
             <Grid ColumnDefinitions="0.1*,0.9*">
                 <Image Source="{Binding FlyoutIcon}"
                        Margin="5"
-                       BackgroundColor="Red"
                        HeightRequest="15" />
                 <Label Grid.Column="1"
                        Text="{Binding Title}"
