@@ -50,10 +50,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Fonts\FontAwesome5Solid.otf" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="MessengerPage.xaml.cs">
 	    <DependentUpon>MessengerPage.xaml</DependentUpon>
 	  </Compile>

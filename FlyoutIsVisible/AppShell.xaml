@@ -5,76 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiApp1"
     Shell.FlyoutBehavior="Flyout">
-
-    <Shell.Resources>
-        <FontImageSource
-            x:Key="IconMessage"
-            FontFamily="FontAwesome"
-            Glyph="{x:Static local:IconFont.Microphone}"
-            Color="{AppThemeBinding Dark=White, Light=Black}"
-            Size="18"/>
-        <FontImageSource
-            x:Key="IconBack"
-            FontFamily="FontAwesome"
-            Glyph="{x:Static local:IconFont.Backward}"
-            Color="{AppThemeBinding Dark=White, Light=Black}"
-            Size="18"/>
-        <FontImageSource
-            x:Key="IconSignout"
-            FontFamily="FontAwesome"
-            Glyph="{x:Static local:IconFont.SignOutAlt}"
-            Color="{AppThemeBinding Dark=White, Light=Black}"
-            Size="18"/>
-        <FontImageSource
-            x:Key="IconInfo"
-            FontFamily="FontAwesome"
-            Glyph="{x:Static local:IconFont.Info}"
-            Color="{AppThemeBinding Dark=White, Light=Black}"
-            Size="18"/>
-        <FontImageSource
-            x:Key="IconHome"
-            FontFamily="FontAwesome"
-            Glyph="{x:Static local:IconFont.Home}"
-            Color="{AppThemeBinding Dark=White, Light=Black}"
-            Size="18"/>
-    </Shell.Resources>
-
-    <!--<Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid ColumnDefinitions="0.1*,0.9*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
-                       BackgroundColor="Red"
-                       HeightRequest="15" />
-                <Label Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontAttributes="Italic"
-                       VerticalTextAlignment="Center" />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>-->
-    
-    <FlyoutItem Title="Message Page" Icon="{StaticResource IconMessage}" FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
+   
+    <FlyoutItem Title="Message Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
         <Tab>
             <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Main Page" Icon="{StaticResource IconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
+    <FlyoutItem Title="Main Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
         <Tab>
             <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Info Page" Icon="{StaticResource IconInfo}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding InfoPageIsVisible}">
+    <FlyoutItem Title="Info Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding InfoPageIsVisible}">
         <Tab>
             <ShellContent Title="Info Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Back Page" Icon="{StaticResource IconBack}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
+    <FlyoutItem Title="Back Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
         <Tab>
             <ShellContent Title="Back Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Sign Out Page" Icon="{StaticResource IconSignout}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
+    <FlyoutItem Title="Sign Out Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
         <Tab>
             <ShellContent Title="Sign Out Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
