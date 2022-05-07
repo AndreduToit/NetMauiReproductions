@@ -51,15 +51,24 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\FontAwesome5Solid.otf" />
+	  <None Remove="Resources\Images\gear.png" />
+	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\info.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Z_AppShell.xaml.cs">
+	    <DependentUpon>Z_AppShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MessengerPage.xaml.cs">
 	    <DependentUpon>MessengerPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Z_AppShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MessengerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
