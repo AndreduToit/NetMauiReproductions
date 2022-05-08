@@ -6,9 +6,9 @@
     xmlns:local="clr-namespace:MauiApp1"
     Shell.FlyoutBehavior="Flyout">
    
-    <FlyoutItem Title="Message Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
+    <FlyoutItem Title="Messager Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
         <Tab>
-            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+            <ShellContent Title="Messenger Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Main Page"  FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">

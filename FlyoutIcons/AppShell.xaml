@@ -52,16 +52,23 @@
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>-->
-    
+
     <FlyoutItem Title="Message Page" Icon="{StaticResource IconMessage}" FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
         <Tab>
-            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}" />
         </Tab>
     </FlyoutItem>
+
     <!-- Using a BindableProperty does not work -->
     <!--<local:FlyoutItemIconFont Title="Message Page" IconGlyph="{x:Static local:IconFont.Microphone}" >
         <Tab>
-            <ShellContent Route="settings" ContentTemplate="{DataTemplate local:MessengerPage}"  />
+            <ShellContent Route="settings" ContentTemplate="{DataTemplate local:MessengerPage}"  >
+                <ShellContent.Icon>
+                    <FontImageSource FontFamily="FontAwesome"
+                                     Color="Black"
+                                     Glyph="{x:Static local:IconFont.Microphone}"/>
+                </ShellContent.Icon>
+            </ShellContent>
         </Tab>
     </local:FlyoutItemIconFont>-->
 
@@ -71,6 +78,8 @@
             <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
         </Tab>
     </FlyoutItem>-->
+    
+    
     <FlyoutItem Title="Main Page" FlyoutIcon="{StaticResource IconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
         <Tab>
             <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
