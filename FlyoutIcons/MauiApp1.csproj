@@ -50,6 +50,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Controls\**" />
+	  <AndroidResource Remove="Resources\FontAwesome\**" />
+	  <Compile Remove="Controls\**" />
+	  <Compile Remove="Resources\FontAwesome\**" />
+	  <EmbeddedResource Remove="Controls\**" />
+	  <EmbeddedResource Remove="Resources\FontAwesome\**" />
+	  <MauiCss Remove="Controls\**" />
+	  <MauiCss Remove="Resources\FontAwesome\**" />
+	  <MauiXaml Remove="Controls\**" />
+	  <MauiXaml Remove="Resources\FontAwesome\**" />
+	  <None Remove="Controls\**" />
+	  <None Remove="Resources\FontAwesome\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Fonts\FontAwesome5Solid.otf" />
 	  <None Remove="Resources\Images\gear.png" />
 	  <None Remove="Resources\Images\home.png" />

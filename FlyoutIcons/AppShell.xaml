@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiApp1"
-    Shell.FlyoutBehavior="Flyout">
+   Shell.FlyoutBehavior="Flyout">
 
     <Shell.Resources>
         <FontImageSource
@@ -39,65 +39,136 @@
             Size="18"/>
     </Shell.Resources>
 
-    <!--<Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid ColumnDefinitions="0.1*,0.9*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
-                       HeightRequest="15" />
-                <Label Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontAttributes="Italic"
-                       VerticalTextAlignment="Center" />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>-->
 
+    <!-- Using Icon with binding works -->
     <FlyoutItem Title="Message Page" Icon="{StaticResource IconMessage}" FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
         <Tab>
-            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}" />
+            <ShellContent Title="Message Page" ContentTemplate="{DataTemplate local:MessengerPage}" />
         </Tab>
     </FlyoutItem>
 
-    <!-- Using a BindableProperty does not work -->
-    <!--<local:FlyoutItemIconFont Title="Message Page" IconGlyph="{x:Static local:IconFont.Microphone}" >
-        <Tab>
-            <ShellContent Route="settings" ContentTemplate="{DataTemplate local:MessengerPage}"  >
-                <ShellContent.Icon>
-                    <FontImageSource FontFamily="FontAwesome"
-                                     Color="Black"
-                                     Glyph="{x:Static local:IconFont.Microphone}"/>
-                </ShellContent.Icon>
-            </ShellContent>
-        </Tab>
-    </local:FlyoutItemIconFont>-->
+    <!-- TEST - Works in another app, but not here - WHY?? __________________________________________________________ -->
+    <!--xmlns:controls="clr-namespace:MauiAppShell.Controls"
+        xmlns:fontAwesome="clr-namespace:FontAwesome"-->
+    <!--<controls:FlyoutItemIconFont Title="Home" IconGlyph="{x:Static fontAwesome:FontAwesomeIcons.House}" >
+        <ShellContent 
+            Title="Home" 
+            Route="home"  
+            ContentTemplate="{DataTemplate local:MainPage}" >
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static fontAwesome:FontAwesomeIcons.House}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent 
+            Title="Log In" 
+            Route="login"  
+            ContentTemplate="{DataTemplate local:MainPage}" >
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static fontAwesome:FontAwesomeIcons.RightToBracket}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent 
+            Title="Log Out"  
+            Route="logout" 
+            ContentTemplate="{DataTemplate local:MainPage}" IsEnabled="False" >
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static fontAwesome:FontAwesomeIcons.RightFromBracket}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent 
+            Title="Register"  
+            Route="register" 
+            ContentTemplate="{DataTemplate local:MainPage}"  >
+            <ShellContent 
+                Title="Veryfy Email" 
+                Route="verifyemail" 
+                ContentTemplate="{DataTemplate local:MainPage}"   />
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static fontAwesome:FontAwesomeIcons.ClipboardList}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent 
+            Title="How To" 
+            Route="howto"  
+            ContentTemplate="{DataTemplate local:MainPage}"  >
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static fontAwesome:FontAwesomeIcons.CircleQuestion}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </controls:FlyoutItemIconFont>-->
+    <!-- TEST_____________________________________________________________________________________________ -->
 
-    <!-- Using an image resouce dows not work -->
-    <!--<FlyoutItem Title="Message Page" Icon="info.png" FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
+
+    <!-- Using a BindableProperty -->
+    <!-- DONOT wrap <ShellContent> in <Tab></Tab> this does not work -->
+    <!-- FontImageSource.Color does not work -->
+    <!--<local:FlyoutItemIconFont Title="Main Page" IconGlyph="{x:Static local:IconFont.Home}" >-->
+    <local:FlyoutItemIconFont Title="Main Page" IconGlyph="{x:Static local:IconFont.Home}" >
+        <ShellContent 
+            Title="Main Page1" 
+            Route="home" 
+            ContentTemplate="{DataTemplate local:MainPage}" >
+            <ShellContent.Icon>
+                <FontImageSource 
+                        FontFamily="FontAwesome"
+                        Color="Red"
+                        Glyph="{x:Static local:IconFont.Home}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent 
+            Title="Main Page2" 
+            Route="home2"  
+            ContentTemplate="{DataTemplate local:MainPage}" >
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="Red"
+                    Glyph="{x:Static local:IconFont.Home}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </local:FlyoutItemIconFont>
+
+    <!-- Using an image resouce does not work -->
+    <FlyoutItem Title="Info Page" Icon="info.png" FlyoutDisplayOptions="AsSingleItem" IsVisible="True">
         <Tab>
-            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}" Icon="info.png"/>
         </Tab>
-    </FlyoutItem>-->
-    
-    
-    <FlyoutItem Title="Main Page" FlyoutIcon="{StaticResource IconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
+    </FlyoutItem>
+
+
+    <!--<FlyoutItem Title="Main Page" FlyoutIcon="{StaticResource IconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
         <Tab>
             <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-    </FlyoutItem>
-    <FlyoutItem Title="Info Page" Icon="{StaticResource IconInfo}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding InfoPageIsVisible}">
+    </FlyoutItem>-->
+    <!--<FlyoutItem Title="Info Page" Icon="{StaticResource IconInfo}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding InfoPageIsVisible}">
         <Tab>
             <ShellContent Title="Info Page" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
     <FlyoutItem Title="Back Page" Icon="{StaticResource IconBack}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
         <Tab>
-            <ShellContent Title="Back Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+            <ShellContent Title="Back Page" ContentTemplate="{DataTemplate local:MainPage}" Icon="{StaticResource IconBack}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Sign Out Page" Icon="{StaticResource IconSignout}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
         <Tab>
-            <ShellContent Title="Sign Out Page" ContentTemplate="{DataTemplate local:MainPage}"/>
+            <ShellContent Title="Sign Out Page" ContentTemplate="{DataTemplate local:MainPage}" Icon="{StaticResource IconSignout}" />
         </Tab>
     </FlyoutItem>
 
