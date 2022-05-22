@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:local="clr-namespace:MauiApp1">
+    <x:Double x:Key="IconFontSize">18</x:Double>
+    <Color x:Key="IconFontColor">Red</Color>
+    <FontImageSource
+        x:Key="FAIconMicrophone"
+        Glyph="{x:Static local:IconFont.Microphone}"
+        FontFamily="FontAwesome"
+        Color="{StaticResource IconFontColor}"
+        Size="{StaticResource IconFontSize}" />
+    <FontImageSource
+        x:Key="FAIconBackWard"
+        Glyph="{x:Static local:IconFont.Backward}"
+        FontFamily="FontAwesome"
+        Color="{StaticResource IconFontColor}"
+        Size="{StaticResource IconFontSize}" />
+    <FontImageSource
+        x:Key="FAIconSignOutAlt"
+        Glyph="{x:Static local:IconFont.RightFromBracket}"
+        FontFamily="FontAwesome"
+        Color="{StaticResource IconFontColor}"
+        Size="{StaticResource IconFontSize}" />
+    <FontImageSource
+        x:Key="FAIconInfo"
+        Glyph="{x:Static local:IconFont.Info}"
+        FontFamily="FontAwesome"
+        Color="{StaticResource IconFontColor}"
+        Size="{StaticResource IconFontSize}" />
+    <FontImageSource
+        x:Key="FAIconHome"
+        Glyph="{x:Static local:IconFont.House}"
+        FontFamily="FontAwesome"
+        Color="{StaticResource IconFontColor}"
+        Size="{StaticResource IconFontSize}" />
+</ResourceDictionary>

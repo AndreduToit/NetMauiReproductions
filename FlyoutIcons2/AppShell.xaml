@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    xmlns:converter="clr-namespace:MauiApp1.Converters" 
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/FAResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+    
+            <!--<Style Class="FlyoutItemLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Medium" />
+            </Style>-->
+
+            <!--<Style ApplyToDerivedTypes="True"
+                   Class="FlyoutItemLayoutStyle"
+                   TargetType="Layout">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                      Value="{AppThemeBinding Dark={StaticResource Dark}, Light={StaticResource Light}}" />
+                                    <Setter TargetName="FlyoutItemLabel"
+                                            Property="Label.TextColor"
+                                    Value="{AppThemeBinding Dark={StaticResource Light}, Light={StaticResource Dark}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="{AppThemeBinding Dark={StaticResource Light}, Light={StaticResource Dark}}" />
+                                    <Setter TargetName="FlyoutItemLabel"
+                                            Property="Label.TextColor"
+                                            Value="{AppThemeBinding Dark={StaticResource Dark}, Light={StaticResource Light}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="{AppThemeBinding Dark={StaticResource Light}, Light={StaticResource Dark}}" />
+                                    <Setter TargetName="FlyoutItemLabel"
+                                            Property="Label.TextColor"
+                                            Value="Red" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>-->
+
+        </ResourceDictionary>
+        <converter:ValueConverterGlyphToFAIcon x:Key="ToFAIcon" />
+
+        <FontImageSource
+            x:Key="IconMessage"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Microphone}"
+            Color="{AppThemeBinding Dark=White, Light=Black}"
+            Size="18"/>
+        <!--Color="{AppThemeBinding Dark=White, Light=Black}"-->
+        <FontImageSource
+            x:Key="IconBackWard"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Backward}"
+            Color="{AppThemeBinding Dark=White, Light=Black}"
+            Size="18"/>
+        <FontImageSource
+            x:Key="IconSignout"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.RightFromBracket}"
+            Color="{AppThemeBinding Dark=White, Light=Black}"
+            Size="18"/>
+        <FontImageSource
+            x:Key="IconInfo"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.Info}"
+            Color="{AppThemeBinding Dark=White, Light=Black}"
+            Size="18"/>
+        <FontImageSource
+            x:Key="IconHome"
+            FontFamily="FontAwesome"
+            Glyph="{x:Static local:IconFont.House}"
+            Color="{AppThemeBinding Dark=White, Light=Black}"
+            Size="18"/>
+    </Shell.Resources>
+
+    <!-- Shell.Resources defined -->
+    <FlyoutItem Title="Message Page" Icon="{StaticResource IconMessage}" >
+        <Tab>
+            <ShellContent Title="Main Page" Route="messagepage" Icon="{StaticResource IconMessage}" ContentTemplate="{DataTemplate local:MessengerPage}"/>
+        </Tab>
+        <Tab>
+            <ShellContent Title="Main Page" Route="messagepage2" Icon="{StaticResource IconBackWard}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+    <!-- Shell.Resources ResourceDictionary defined -->
+    <FlyoutItem Title="Main Page" Icon="{StaticResource FAIconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
+        <Tab>
+            <ShellContent Title="Main Page" Route="mainpage" Icon="{StaticResource FAIconHome}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab>
+            <ShellContent Title="Main Page" Route="mainpage2" Icon="{StaticResource FAIconBackWard}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem 
+        Title="Home"
+        Icon="{Binding IconFontInfo, Converter={StaticResource ToFAIcon} }" >
+        <Tab>
+            <ShellContent Title="Info Page" Route="infopage" Icon="{StaticResource IconMessage}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab>
+            <ShellContent Title="Main Page" Route="infopage2" Icon="{StaticResource IconBackWard}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem 
+        Title="Back Page">
+        <FlyoutItem.Icon>
+            <FontImageSource 
+                    FontFamily="FontAwesome"
+                    Color="White"
+                    Glyph="{x:Static local:IconFont.House}"/>
+        </FlyoutItem.Icon>
+        <Tab>
+            <ShellContent Title="Back Page" Route="backpage"  Icon="{StaticResource IconHome}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab>
+            <ShellContent Title="Main Page" Route="backpage2"  Icon="{StaticResource IconBackWard}" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+  
+    <FlyoutItem Title="Sign Out Page" Icon="{StaticResource IconSignout}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
+        <Tab>
+            <ShellContent Title="Sign Out Page" Route="signoutpage" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

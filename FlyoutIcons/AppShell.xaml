@@ -150,17 +150,6 @@
         </Tab>
     </FlyoutItem>
 
-
-    <!--<FlyoutItem Title="Main Page" FlyoutIcon="{StaticResource IconHome}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding MainPageIsVisible}">
-        <Tab>
-            <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}"/>
-        </Tab>
-    </FlyoutItem>-->
-    <!--<FlyoutItem Title="Info Page" Icon="{StaticResource IconInfo}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding InfoPageIsVisible}">
-        <Tab>
-            <ShellContent Title="Info Page" ContentTemplate="{DataTemplate local:MainPage}"/>
-        </Tab>
-    </FlyoutItem>-->
     <FlyoutItem Title="Back Page" Icon="{StaticResource IconBack}" FlyoutDisplayOptions="AsSingleItem" IsVisible="{Binding BackPageIsVisible}">
         <Tab>
             <ShellContent Title="Back Page" ContentTemplate="{DataTemplate local:MainPage}" Icon="{StaticResource IconBack}" />
