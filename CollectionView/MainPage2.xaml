@@ -43,11 +43,6 @@
                 ItemsSource="{Binding PageItems}"
                 SelectionMode="Single" 
                 SelectedItem="{Binding SelectedItem}">
-                <CollectionView.GestureRecognizers>
-                    <TapGestureRecognizer 
-                                    NumberOfTapsRequired="1"
-                                    Command="{Binding CollectionViewSelectionClick}" />
-                </CollectionView.GestureRecognizers>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:ModelCollectionViewItem">
                         <Grid>
